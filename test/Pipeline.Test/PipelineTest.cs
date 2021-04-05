@@ -5,7 +5,7 @@ using Xunit;
 
 namespace Pipe.Net.Test
 {
-    public class PipeTest
+    public class PipelineTest
     {
         [Fact]
         public async Task Pipe_ShouldRunPipe_ReturnsLastNodeName()

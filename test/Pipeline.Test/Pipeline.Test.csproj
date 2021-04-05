@@ -4,6 +4,8 @@
     <TargetFramework>net5.0</TargetFramework>
 
     <IsPackable>false</IsPackable>
+
+    <RootNamespace>Pipe.Net.Test</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Pipe.Net\Pipe.Net.csproj" />
+    <ProjectReference Include="..\..\src\Pipeline\Pipeline.csproj" />
   </ItemGroup>
 
 </Project>

@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <Title>Pipe line in .Net core (Chain Of Responsibility)</Title>
+    <Title>Pipeline in .Net core (Chain Of Responsibility)</Title>
     <Authors>Ali Alp</Authors>
     <Description>Simplify your complex flow into a well organize pipeline </Description>
     <Copyright>null</Copyright>
@@ -12,6 +12,7 @@
     <RepositoryType>GIT</RepositoryType>
     <PackageTags>pipe pipeline chain of responsibility</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <RootNamespace>Pipe.Net</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
