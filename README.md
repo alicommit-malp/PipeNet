@@ -1,5 +1,5 @@
-# Pipe.Net
-Pipe line in .Net core (Chain of responsibility) 
+# Pipeline
+Pipeline in .Net core (Chain of responsibility) 
 
 ## Usage
 
