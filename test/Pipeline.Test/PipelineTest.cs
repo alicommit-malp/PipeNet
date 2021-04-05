@@ -1,9 +1,9 @@
 using System;
 using System.Threading.Tasks;
-using Pipe.Net.Test.Pipeline;
+using Pipeline.Test.Pipeline;
 using Xunit;
 
-namespace Pipe.Net.Test
+namespace Pipeline.Test
 {
     public class PipelineTest
     {
@@ -28,7 +28,7 @@ namespace Pipe.Net.Test
         {
             static async Task Action()
             {
-                var result = await new Pipe<OrderData>()
+                await new Pipe<OrderData>()
                     .Add(new OrderNode())
                     .Add(new ExceptionNode())
                     .Add(new ProducingNode())

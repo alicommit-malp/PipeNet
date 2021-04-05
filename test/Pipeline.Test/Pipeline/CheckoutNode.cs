@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace Pipe.Net.Test.Pipeline
+namespace Pipeline.Test.Pipeline
 {
     public class CheckoutNode : Node<OrderData>
     {

@@ -1,4 +1,4 @@
-namespace Pipe.Net.Test.Pipeline
+namespace Pipeline.Test.Pipeline
 {
     public class OrderData 
     {

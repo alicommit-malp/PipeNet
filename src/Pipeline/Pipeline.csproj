@@ -12,7 +12,6 @@
     <RepositoryType>GIT</RepositoryType>
     <PackageTags>pipe pipeline chain of responsibility</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <RootNamespace>Pipe.Net</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
