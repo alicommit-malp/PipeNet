@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Pipeline
+namespace PipeNet
 {
     public class Pipe<T>
     {

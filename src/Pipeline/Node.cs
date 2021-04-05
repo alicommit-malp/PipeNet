@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace Pipeline
+namespace PipeNet
 {
     public abstract class Node<T>
     {

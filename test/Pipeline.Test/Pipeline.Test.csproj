@@ -4,6 +4,10 @@
     <TargetFramework>net5.0</TargetFramework>
 
     <IsPackable>false</IsPackable>
+
+    <AssemblyName>PipeNet.Test</AssemblyName>
+
+    <RootNamespace>PipeNet.Test</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

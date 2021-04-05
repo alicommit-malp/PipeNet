@@ -1,9 +1,9 @@
 using System;
 using System.Threading.Tasks;
-using Pipeline.Test.Pipeline;
+using PipeNet.Test.Pipeline;
 using Xunit;
 
-namespace Pipeline.Test
+namespace PipeNet.Test
 {
     public class PipelineTest
     {

@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace Pipeline.Test.Pipeline
+namespace PipeNet.Test.Pipeline
 {
     public class ProducingNode : Node<OrderData>
     {
