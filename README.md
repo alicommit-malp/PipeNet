@@ -1,4 +1,4 @@
-# Pipeline
+# PipeNet
 PipeNet in .Net core
 
 ## Usage
