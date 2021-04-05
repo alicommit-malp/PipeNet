@@ -12,7 +12,7 @@ namespace Pipe.Net
         /// </summary>
         /// <param name="node">A step in the pipeline which must inherit from the <see cref="Node{T}"/> class</param>
         /// <returns>This <see cref="Pipe{T}"/> to provide the builder pattern feature</returns>
-        public Pipe<T> Next(Node<T> node)
+        public Pipe<T> Add(Node<T> node)
         {
             _nodes.Enqueue(node);
             return this;

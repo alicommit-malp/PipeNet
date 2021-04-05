@@ -1,6 +1,5 @@
 using System;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
 using Pipe.Net.Test.Pipeline;
 using Xunit;
 
@@ -8,23 +7,20 @@ namespace Pipe.Net.Test
 {
     public class PipeTest
     {
-        public static readonly ILogger<PipeTest> Logger = TestLogger.Create<PipeTest>();
-
         [Fact]
         public async Task Pipe_ShouldRunPipe_ReturnsLastNodeName()
         {
-            var result = await new Pipe<OrderData>()
-                .Next(new OrderNode())
-                .Next(new CheckoutNode())
-                .Next(new ProducingNode())
+            OrderData result = await new Pipe<OrderData>()
+                .Add(new OrderNode())
+                .Add(new ProducingNode())
+                .Add(new CheckoutNode())
                 .Run(new OrderData()
                 {
                     Name = "Coffee",
                     State = "None",
-                    Digit = 0
                 });
 
-            Assert.Equal(nameof(ProducingNode), result.State);
+            Assert.Equal(nameof(CheckoutNode), result.State);
         }
 
         [Fact]
@@ -33,15 +29,19 @@ namespace Pipe.Net.Test
             static async Task Action()
             {
                 var result = await new Pipe<OrderData>()
-                    .Next(new OrderNode())
-                    .Next(new ExceptionNode())
-                    .Next(new CheckoutNode())
-                    .Next(new ProducingNode())
-                    .Run(new OrderData() {Name = "Coffee", State = "None", Digit = 0});
+                    .Add(new OrderNode())
+                    .Add(new ExceptionNode())
+                    .Add(new ProducingNode())
+                    .Add(new CheckoutNode())
+                    .Run(new OrderData()
+                    {
+                        Name = "Coffee",
+                        State = "None",
+                    });
             }
 
             var exception = await Assert.ThrowsAsync<Exception>(Action);
-            Assert.Equal("100",exception.Message);
+            Assert.Equal("100", exception.Message);
         }
     }
 }

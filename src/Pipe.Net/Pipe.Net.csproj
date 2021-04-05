@@ -2,6 +2,16 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Title>Pipe line in .Net core (Chain Of Responsibility)</Title>
+    <Authors>Ali Alp</Authors>
+    <Description>Simplify your complex flow into a well organize pipeline </Description>
+    <Copyright>null</Copyright>
+    <PackageProjectUrl>https://github.com/alicommit-malp/Pipe.Net</PackageProjectUrl>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/alicommit-malp/Pipe.Net/main/LICENSE</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/alicommit-malp/Pipe.Net</RepositoryUrl>
+    <RepositoryType>GIT</RepositoryType>
+    <PackageTags>pipe pipeline chain of responsibility</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
