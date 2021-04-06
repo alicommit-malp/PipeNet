@@ -5,14 +5,14 @@ PipeNet in .Net core
 
 ```c#
 
-OrderData result = await new Pipe<OrderData>()
-    .Add(new OrderNode())
-    .Add(new ProducingNode())
-    .Add(new CheckoutNode())
-    .Run(new OrderData()
+OrderData result= await new Pipe<OrderData>()
+    .Next(new OrderNode())
+    .Next(new ProducingNode())
+    .Finally(new CheckoutNode())
+    .Execute(new OrderData()
     {
         Name = "Coffee",
-        State = "None",
+        State = this.GetType().Name, 
     });
 
 
@@ -22,10 +22,10 @@ OrderData result = await new Pipe<OrderData>()
 ```c#
 public class OrderNode : Node<OrderData>
 {
-    public override Task InvokeAsync(OrderData data)
+    public override async Task<OrderData> Execute(OrderData param)
     {
-        data.State = nameof(OrderNode);
-        return Task.CompletedTask;
+        param.State = GetType().Name;
+        return await base.Execute(param);
     }
 }
 ```
@@ -34,10 +34,10 @@ public class OrderNode : Node<OrderData>
 ```c#
 public class ProducingNode : Node<OrderData>
 {
-    public override Task InvokeAsync(OrderData data)
+    public override async Task<OrderData> Execute(OrderData param)
     {
-        data.State = nameof(ProducingNode);
-        return Task.CompletedTask;
+        param.State = GetType().Name;
+        return await base.Execute(param);
     }
 }
 ```
@@ -46,10 +46,10 @@ public class ProducingNode : Node<OrderData>
 ```c#
 public class CheckoutNode : Node<OrderData>
 {
-    public override Task InvokeAsync(OrderData data)
+    public override async Task<OrderData> Execute(OrderData param)
     {
-        data.State = nameof(CheckoutNode);
-        return Task.CompletedTask;
+        param.State = GetType().Name;
+        return await base.Execute(param);
     }
 }
 ```
@@ -63,10 +63,10 @@ Intel Core i7-9750H CPU 2.60GHz, 1 CPU, 12 logical and 6 physical cores
 DefaultJob : .NET Core 5.0.4 (CoreCLR 5.0.421.11614, CoreFX 5.0.421.11614), X64 RyuJIT
 
 
-|            Method |      Mean |    Error |   StdDev |  Gen 0 | Gen 1 | Gen 2 | Allocated |
-|------------------ |----------:|---------:|---------:|-------:|------:|------:|----------:|
-|    RunWithPipeNet | 176.09 ns | 3.264 ns | 2.726 ns | 0.0470 |     - |     - |     296 B |
-| RunWithoutPipeNet |  31.00 ns | 0.651 ns | 1.069 ns | 0.0051 |     - |     - |      32 B |
+|               Method |     Mean |   Error |   StdDev |  Gen 0 | Gen 1 | Gen 2 | Allocated |
+|--------------------- |---------:|--------:|---------:|-------:|------:|------:|----------:|
+|       WithPipeNet | 221.3 ns | 4.37 ns | 10.87 ns | 0.0713 |     - |     - |     448 B |
+| RunWithoutPipeNet | 218.0 ns | 4.41 ns | 10.90 ns | 0.0892 |     - |     - |     560 B |
 
-As it can be seen in the table above the PipeNet has a slight overhead, if you prefer readability over the performance so go for it :) 
+
 

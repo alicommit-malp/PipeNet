@@ -1,4 +1,4 @@
-namespace PipeNet.Test.Pipeline
+namespace PipeNet.Test.Chr.Pipeline
 {
     public class OrderData 
     {

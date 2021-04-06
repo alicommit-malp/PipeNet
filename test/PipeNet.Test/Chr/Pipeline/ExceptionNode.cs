@@ -1,13 +1,13 @@
 using System;
 using System.Threading.Tasks;
 
-namespace PipeNet.Test.Pipeline
+namespace PipeNet.Test.Chr.Pipeline
 {
     public class ExceptionNode : Node<OrderData>
     {
-        public override Task InvokeAsync(OrderData data)
+        public override Task<OrderData> Execute(OrderData param)
         {
-            data.State = nameof(ExceptionNode);
+            param.State = nameof(ExceptionNode);
             throw new Exception("100");
         }
     }

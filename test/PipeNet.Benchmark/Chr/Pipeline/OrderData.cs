@@ -1,4 +1,4 @@
-namespace PipeNet.Benchmark.Pipeline
+namespace PipeNet.Benchmark.Chr.Pipeline
 {
     public class OrderData 
     {

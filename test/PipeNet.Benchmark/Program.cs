@@ -1,5 +1,5 @@
 ﻿using BenchmarkDotNet.Running;
-using PipeNet.Benchmark.Pipeline;
+using PipeNet.Benchmark.Chr;
 
 namespace PipeNet.Benchmark
 {
@@ -7,7 +7,7 @@ namespace PipeNet.Benchmark
     {
         static void Main(string[] args)
         {
-            var summary = BenchmarkRunner.Run<PipeNetClient>();
+            BenchmarkRunner.Run<PipelineClient>();
         }
     }
 }
