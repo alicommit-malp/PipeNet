@@ -1,7 +1,13 @@
 # PipeNet
-PipeNet in .Net core
+Simplifying a complex logic with the Chain of responsibility  and builder patterns
 
 ## Usage
+
+> Install it from [Nuget](https://www.nuget.org/packages/PipeNet/)
+> 
+```bash
+Install-Package PipeNet
+```
 
 ```c#
 
@@ -12,7 +18,6 @@ OrderData result= await new Pipe<OrderData>()
     .Execute(new OrderData()
     {
         Name = "Coffee",
-        State = this.GetType().Name, 
     });
 
 
@@ -24,7 +29,7 @@ public class OrderNode : Node<OrderData>
 {
     public override async Task<OrderData> Execute(OrderData param)
     {
-        param.State = GetType().Name;
+        // Node 1's logic
         return await base.Execute(param);
     }
 }
@@ -36,7 +41,7 @@ public class ProducingNode : Node<OrderData>
 {
     public override async Task<OrderData> Execute(OrderData param)
     {
-        param.State = GetType().Name;
+        // Node 2's logic
         return await base.Execute(param);
     }
 }
@@ -48,7 +53,7 @@ public class CheckoutNode : Node<OrderData>
 {
     public override async Task<OrderData> Execute(OrderData param)
     {
-        param.State = GetType().Name;
+        // Node 3's logic
         return await base.Execute(param);
     }
 }
